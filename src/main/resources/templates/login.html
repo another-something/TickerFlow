@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        body {
+            background-color: #121212;
+            color: #f0f0f0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #1e1e1e;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+            width: 400px;
+            min-height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .container h2 {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .container input[type="text"],
+        .container input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 8px;
+            background-color: #2a2a2a;
+            color: #f0f0f0;
+            font-size: 1rem;
+        }
+
+        .container button {
+            width: 100%;
+            padding: 12px;
+            background-color: transparent;
+            border: 1px solid #f0f0f0;
+            color: #f0f0f0;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .container button:hover {
+            background-color: #f0f0f0;
+            color: #121212;
+        }
+
+        .custom-close {
+            color: #aaaaaa !important;
+            font-size: 1.2rem;
+            transition: transform 0.2s ease;
+        }
+
+        .custom-close:hover {
+            color: #ffffff !important;
+            transform: rotate(90deg);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>로그인</h2>
+    <form method="post" action="/login">
+        <input type="text" name="userId" placeholder="아이디">
+        <input type="password" name="userPass" placeholder="비밀번호">
+        <button type="submit">로그인</button>
+    </form>
+    <div class="switch" style="text-align: center; margin-top: 16px;">
+        계정이 없으신가요? <a href="/join">회원가입</a>
+    </div>
+</div>
+
+<div id="error-message" th:data-msg="${error}" style="display: none;"></div>
+<div id="success-message" th:data-msg="${success}" style="display: none;"></div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const errorMsg = document.getElementById("error-message")?.dataset.msg;
+        const successMsg = document.getElementById("success-message")?.dataset.msg;
+
+        if (errorMsg) {
+            Swal.fire({
+                icon: 'error',
+                title: '실패',
+                text: errorMsg,
+                background: '#1e1e1e',
+                color: '#f0f0f0',
+                iconColor: '#ff4c4c',
+                showCloseButton: true,
+                customClass: {
+                    popup: 'animate__animated animate__fadeInDown',
+                    confirmButton: 'custom-confirm',
+                    closeButton: 'custom-close'
+                },
+                confirmButtonText: '확인',
+                showClass: {
+                    popup: 'animate__animated animate__fadeInDown'
+                },
+                hideClass: {
+                    popup: 'animate__animated animate__fadeOutUp'
+                }
+            });
+        }
+
+        if (successMsg) {
+            Swal.fire({
+                icon: 'success',
+                title: '성공',
+                text: successMsg,
+                background: '#1e1e1e',
+                color: '#f0f0f0',
+                iconColor: '#50fa7b',
+                showCloseButton: true,
+                confirmButtonText: '확인'
+            });
+        }
+    });
+</script>
+
+</body>
+</html>

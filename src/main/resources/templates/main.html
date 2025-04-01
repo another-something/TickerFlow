@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        body {
+            margin: 0;
+            background-color: #121212;
+            color: #f0f0f0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+        }
+
+        .sidebar {
+            width: 240px;
+            background-color: #1e1e1e;
+            height: 100vh;
+            padding: 30px 24px;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
+            position: fixed;
+        }
+
+        .sidebar .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 40px;
+        }
+
+        .sidebar nav a {
+            display: block;
+            color: #f0f0f0;
+            margin: 20px 0;
+            text-decoration: none;
+            transition: color 0.2s ease;
+            font-size: 1rem;
+        }
+
+        .sidebar nav a:hover {
+            color: #50fa7b;
+        }
+
+        .main-content {
+            margin-left: 260px;
+            padding: 60px 60px;
+            flex: 1;
+        }
+
+        .dashboard-title {
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .card {
+            background-color: #1e1e1e;
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+            transition: transform 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .card-content {
+            font-size: 0.95rem;
+            color: #bbbbbb;
+        }
+
+        footer {
+            margin-top: 60px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+
+<div class="sidebar">
+    <div class="logo">MySite</div>
+    <nav>
+        <a href="/">홈</a>
+        <a href="/profile">내 정보</a>
+        <a href="/charts">차트 분석</a>
+        <a href="/settings">설정</a>
+        <a href="/logout">로그아웃</a>
+    </nav>
+</div>
+
+<div class="main-content">
+    <div class="dashboard-title">🎉 로그인 성공! 대시보드에 오신 걸 환영합니다</div>
+    <div class="card-grid">
+        <div class="card">
+            <div class="card-title">내 정보</div>
+            <div class="card-content">회원 아이디, 이메일, 최근 로그인 시간 등을 확인할 수 있습니다.</div>
+        </div>
+        <div class="card">
+            <div class="card-title">차트 분석</div>
+            <div class="card-content">주식/코인 데이터 시각화 및 실시간 분석 기능이 들어갈 수 있습니다.</div>
+        </div>
+        <div class="card">
+            <div class="card-title">설정</div>
+            <div class="card-content">비밀번호 변경, 프로필 수정 등 개인화 설정 메뉴가 들어갑니다.</div>
+        </div>
+    </div>
+
+    <footer>
+        © 2025 MySite. All rights reserved.
+    </footer>
+</div>
+
+</body>
+</html>

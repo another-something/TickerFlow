@@ -1,0 +1,18 @@
+# Node (프론트엔드)
+node_modules/
+dist/
+.env
+
+# Java (백엔드)
+*.class
+*.jar
+*.war
+*.iml
+target/
+.gradle/
+build/
+
+# IntelliJ / OS
+.idea/
+*.log
+.DS_Store
